@@ -41,6 +41,14 @@ Folder selection requires a browser that supports `<input webkitdirectory>` (Chr
 npm install
 npm run dev      # start local dev server
 npm run build    # type-check + production build
+npm test         # run unit tests (vitest)
 ```
+
+## CI/CD
+
+- Every pull request (and each push to its branch) runs the build and test suite via
+  `.github/workflows/ci.yml`.
+- Pushing a tag matching `v*` runs `.github/workflows/release.yml`: build, test, zip the compiled
+  app, and publish it as a GitHub release with auto-generated release notes.
 
 Stack: React + TypeScript + Vite, Three.js for rendering, `fflate` for gzip/zip decoding.
